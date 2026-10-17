@@ -1,0 +1,232 @@
+/* ---------- Page & card ---------- */
+.auth-page {
+  min-height: 100vh;
+  background: #fff;
+}
+.auth-card {
+  display: grid;
+  grid-template-columns: 48% 1fr;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ---------- Left hero ---------- */
+.auth-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: #2d3ce6;
+  color: #fff;
+  isolation: isolate;
+}
+.auth-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.auth-hero-copy {
+  padding: 42px 46px 0;
+}
+.auth-hero-title {
+  margin: 0;
+  max-width: 420px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+/* Partners marquee */
+.auth-partners {
+  padding-bottom: 50px;
+  text-align: center;
+}
+.auth-partners-label {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: #a9dcff;
+}
+.auth-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.auth-marquee-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.auth-partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+@keyframes marquee {
+  to { transform: translateX(calc(-50% - 16px)); }
+}
+
+/* ---------- Right form (8pt spacing system) ---------- */
+.auth-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+}
+.auth-form-wrap {
+  width: 100%;
+  max-width: 400px;
+}
+.auth-title {
+  margin: 0 0 32px;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #111318;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+.auth-field {
+  margin-bottom: 24px;
+}
+.auth-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.auth-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7079;
+}
+.auth-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b3fe6;
+}
+.auth-link:hover {
+  text-decoration: underline;
+}
+.auth-input-wrap {
+  position: relative;
+}
+.auth-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #dcdde2;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  color: #111318;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.auth-input::placeholder {
+  color: #9a9ea6;
+}
+.auth-input:focus {
+  border-color: #3b3fe6;
+  box-shadow: 0 0 0 1px #3b3fe6;
+}
+.auth-input-wrap .auth-input {
+  padding-right: 48px;
+}
+.auth-eye {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #6b7079;
+  cursor: pointer;
+}
+
+.auth-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 32px;
+  font-size: 14px;
+  color: #6b7079;
+  cursor: pointer;
+}
+.auth-check input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #3b3fe6;
+  cursor: pointer;
+}
+.auth-check a {
+  text-decoration: underline;
+}
+
+.auth-submit {
+  height: 48px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #4a4cf0 0%, #3a3de4 100%);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.auth-submit:hover {
+  filter: brightness(1.07);
+}
+.auth-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.auth-error {
+  margin: -16px 0 24px;
+  font-size: 14px;
+  color: #d92d20;
+}
+.auth-footnote {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: #111318;
+}
+.auth-footnote a {
+  margin-left: 4px;
+  font-weight: 600;
+  color: #3b3fe6;
+}
+
+/* ---------- Responsive & motion ---------- */
+@media (max-width: 860px) {
+  .auth-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .auth-hero {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-marquee-track {
+    animation: none;
+  }
+}
