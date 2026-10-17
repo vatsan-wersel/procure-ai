@@ -1,4 +1,3 @@
-import { db } from "@/lib/db";
 import { getSession } from "@/lib/session";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
@@ -16,15 +15,13 @@ export async function PortalShell({
   children: React.ReactNode;
 }) {
   const session = await getSession();
-  const user = session
-    ? await db.user.findUnique({ where: { id: session.userId }, select: { name: true } })
-    : null;
+  const userName = session?.role === "VENDOR" ? "Demo Vendor" : "Admin";
 
   return (
     <div className="shell">
       <Sidebar nav={nav} root={root} workspace={workspace} />
       <div className="shell-body">
-        <Topbar nav={nav} root={root} userName={user?.name ?? "User"} />
+        <Topbar nav={nav} root={root} userName={userName} />
         <main className="shell-content">{children}</main>
       </div>
     </div>
